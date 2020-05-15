@@ -1,0 +1,9 @@
+<h3> Show User <%= params[:id] %> </h3>
+
+<% @response.each do |key, value| %>
+  <b> <%= key %>: </b> <%= value %>
+<% end  %>
+
+<p>
+  <%= link_to 'Return', users_path %>
+</p>
