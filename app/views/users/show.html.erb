@@ -1,8 +1,13 @@
 <h3> Show User <%= params[:id] %> </h3>
 
-<% @user.each do |key, value| %>
-  <b> <%= key %>: </b> <%= value %>
-<% end  %>
+<p>
+  <b> Value: </b> <%= @user.value %>
+</p>
+
+
+<p>
+  <%= link_to 'Edit', edit_user_path(params[:id]) %>
+</p>
 
 <p>
   <%= link_to 'Return', users_path %>

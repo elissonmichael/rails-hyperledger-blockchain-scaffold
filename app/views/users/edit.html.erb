@@ -1,0 +1,11 @@
+<h3> Edit User </h3>
+
+<%= form_with(model: @user, url: { action: "update" }, method: 'put', local: true) do |f| %>
+  <%= render 'form_errors', resource: @user %>
+  <p>
+    <b>Value: </b>
+    <%= f.text_field :value, value: @user.value, required: true %> <br>
+  </p>
+  <%= f.submit 'Submit' %>
+  <%= link_to 'Return', :back %>
+<% end %>

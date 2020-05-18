@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def index; end
 
   def show
-    @user = User.show(params[:id])
+    @user = User.find(params[:id])
   end
 
   def new
@@ -12,9 +12,22 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to @user, notice: 'User Created'
+      redirect_to root_path, notice: 'User Created'
     else
       render :new
+    end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.new(user_params)
+    if @user.update
+      redirect_to root_path, notice: 'User Updated'
+    else
+      render :edit
     end
   end
 

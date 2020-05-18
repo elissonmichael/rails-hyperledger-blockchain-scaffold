@@ -5,6 +5,16 @@ class User
   attr_accessor :id, :value
   validates :id, :value, presence: true
 
+  def update
+    return false unless valid?
+
+    self.class.client.invoke(
+      chaincode_id: 'node_blockchain_api_scaffold',
+      channel_id: 'mychannel',
+      args: ['updateUser', id.to_s, value]
+    )
+  end
+
   def save
     return false unless valid?
 
@@ -15,8 +25,9 @@ class User
     )
   end
 
-  def self.show(id)
-    JSON.parse query('readUser', id.to_s).first
+  def self.find(id)
+    hash = JSON.parse query('readUser', id.to_s).first
+    User.new(hash)
   end
 
   def self.query(*args)
