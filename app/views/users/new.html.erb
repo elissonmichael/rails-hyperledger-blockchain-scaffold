@@ -1,0 +1,13 @@
+<h3> New User </h3>
+
+<%= form_with(model: @user, local: true) do |f| %>
+  <%= render 'form_errors', resource: @user %>
+  <p>
+    <b>ID: </b> <%= f.number_field :id, required: true %> <br>
+  </p>
+  <p>
+    <b>Value: </b> <%= f.text_field :value, required: true %> <br>
+  </p>
+  <%= f.submit 'Submit' %>
+  <%= link_to 'Return', :back %>
+<% end %>
