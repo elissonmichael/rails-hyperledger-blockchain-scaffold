@@ -1,8 +1,28 @@
 ## Rails Hyperledger Blockchain Scaffold
 
-My Rails 6 Hyperledger Fabric Blockchain CRUD Scaffold Using https://github.com/kirshin/hyperledger-fabric-sdk
+My Rails 6 Hyperledger Fabric Blockchain CRUD Scaffold Using [Ruby Hyperledger Fabric SDK](https://github.com/kirshin/hyperledger-fabric-sdk).
 
-I'm using Ubuntu 19.10, Ruby 2.6.6 and Rails 6.0.3:
+Be Sure to Have a [Working Hyperledger Installation](https://hyperledger-fabric.readthedocs.io/en/release-1.4/install.html):
+
+### Install VSCode with IBM Blockchain Platform Extension**:
+- [VSCode version 1.39](https://code.visualstudio.com/updates/v1_39)
+- [IBM Blockchain Platform Extension for VSCode](https://github.com/IBM-Blockchain/blockchain-vscode-extension)
+
+### Test Your IBM Blockchain Platform Extension:
+
+- Click on *1 Org Local Fabric* to start (Fabric Environment)
+- Click on *Package Open Project* (Smart Contracts) after openning only `app/contracts/users` folder on VS Code
+- Click on *Fabric Environments -> Smart Contracts -> Installed -> Install* and select `node_blockchain_api_scaffold@0.0.1`
+- Click on *Fabric Environments -> Smart Contracts -> Instantiated -> Instantiate* and select `node_blockchain_api_scaffold@0.0.1` use default values (press Enter) for all questions
+- Click on *1 Org Local Fabric -> Org 1* -> **right click** *-> Export Wallet* and save on api/wallets (will create a folder called wallets on /api path)
+
+### Check That Everything is Working Before Using Rails:
+
+- Click on *Fabric Gateways -> 1 Org Local Fabric - Org1* and selecting admin
+- Click on *Fabric Gateways -> 1 Org Local Fabric - Org 1 -> Channels -> mychannel -> node_blockchain_api_scaffold@0.0.1 -> createUser* -> **right click** -> Submit Transaction and send `["1", "Élisson Michael"]` as argument (press Enter on next question) and you should see a "Successfully submitted transaction" notification
+- Click on *Fabric Gateways -> 1 Org Local Fabric - Org 1 -> Channels -> mychannel -> node_blockchain_api_scaffold@0.0.1 -> readUser* -> **right click** -> Evaluate Transaction and send `["1"]` as argument (press Enter on next question) and you should see a "Successfully submitted transaction" notification followed by `[SUCCESS] Returned value from readUser: {"value":"Élisson Michael"}` message on terminal
+
+I'm using Ubuntu 19.10, Ruby 2.6.6 and Rails 6.0.3.
 
 ### Install Ruby
 
@@ -42,4 +62,4 @@ ruby -v
 * `cd rails-hyperledger-blockchain-scaffold`
 * `bundle install`
 * `rails s`
-* Open [http://localhost:3000](http://localhost:3000)
+* Open http://localhost:3000/users/1
