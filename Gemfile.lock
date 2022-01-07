@@ -83,7 +83,7 @@ GEM
     ffi (1.12.2)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    google-protobuf (3.11.4)
+    google-protobuf (3.19.2)
     googleapis-common-protos-types (1.0.5)
       google-protobuf (~> 3.11)
     grpc (1.28.0)
